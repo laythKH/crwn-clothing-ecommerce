@@ -4,7 +4,6 @@ import './homepage.style.scss';
 
 import Directory from "../../components/directory/directory.component";
 
-import { useLocation } from 'react-router-dom';
 
 
 const HomePage = () => {
