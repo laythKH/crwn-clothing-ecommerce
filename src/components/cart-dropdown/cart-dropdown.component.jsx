@@ -19,12 +19,8 @@ const CartDropdown = ({ cartItems }) => (
    </div>
 )
 
-const mapStateToProps = (state) => {
-   console.log('i am Rerender the dropDown')
-   return { cartItems: selectCartItems(state) }
-}
-// const mapStateToProps = (state) => ({
-//    cartItems: selectCartItems(state)
-// })
+const mapStateToProps = (state) => ({
+   cartItems: selectCartItems(state)
+})
 
 export default connect(mapStateToProps)(CartDropdown)
