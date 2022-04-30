@@ -7,7 +7,7 @@ import { initializeApp } from 'firebase/app';
 
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 
-import { collection, doc, getDoc, getFirestore, setDoc } from 'firebase/firestore';
+import { doc, getDoc, getFirestore, setDoc } from 'firebase/firestore';
 
 const config = {
    apiKey: "AIzaSyAiQiOhqfbhg7NO4Tol3nV6ulN05ozW6hQ",
@@ -27,11 +27,10 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
    const docs = doc(db, "users", userAuth.uid);
 
-   console.log(docs)
 
    const getDo = await getDoc(docs);
 
-   
+
    if (!getDo.exists()) {
       const { displayName, email } = userAuth;
       const createdAt = new Date();
@@ -52,16 +51,8 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 export const auth = getAuth(app);
 
-// console.log(auth)
-
 
 export const sginInWithGoogle = () => {
    const provider = new GoogleAuthProvider();
    signInWithPopup(auth, provider)
-   // .then((re) => {
-   //    console.log(re)
-   // })
-   // .catch((err) => {
-   //    console.log(err)
-   // })
 }
