@@ -15,6 +15,7 @@ import { doc, onSnapshot } from 'firebase/firestore';
 
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.action'
+import CategoryPage from './pages/category/category.component';
 
 class App extends React.Component {
 
@@ -57,6 +58,7 @@ class App extends React.Component {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/shop' element={<ShopPage />} />
+          <Route path='/shop/:categoryId' element={<CategoryPage />} />
           <Route path='checkout' element={<CheckoutPage />} />
           <Route path='signin' element={this.props.currentUser ? <Navigate to='/' replace /> : <SignInAndSignUpPage />} />
         </Routes>

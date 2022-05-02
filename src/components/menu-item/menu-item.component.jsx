@@ -10,11 +10,8 @@ import './menu-item.style.scss';
 
 const MenuItem = ({ title, imageUrl, size, linkUrl }) => {
    const Navigater = useNavigate()
-   // console.log(Navigater);
-   const location = useLocation();
-   //    console.log(location.search);
 
-   // console.log(location.pathname)
+   const location = useLocation();
 
    return (
       <div className={`${size} menu-item`} onClick={() => Navigater(`${location.pathname}${linkUrl}`)}>
