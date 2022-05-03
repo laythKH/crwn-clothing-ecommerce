@@ -1,0 +1,28 @@
+.collection-page {
+   display: flex;
+   flex-direction: column;
+
+   .title {
+      font-size: 38px;
+      margin: 0 auto 30px;
+   }
+
+   .items {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-gap: 20px;
+
+      & .collection-item {
+         margin-bottom: 30px;
+         width: 100%;
+
+         .image {
+            width: 100%;
+            height: 95%;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 5px;
+         }
+      }
+   }
+}

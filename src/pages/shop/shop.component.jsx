@@ -4,7 +4,6 @@ import CollectionsOverview from '../../components/collection-overview/collection
 
 
 const ShopPage = () => {
-
    return (
       <div className='shop-page'>
          <CollectionsOverview />
