@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
-import { Routes, Route, Navigate, HashRouter } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 // import { } from 'react-router-dom';
 import HomePage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 
-import Header from './components/header/header.component.jsx';
 
 import { auth, db } from './firebase/firebase.utils';
 import { doc, onSnapshot } from 'firebase/firestore';
