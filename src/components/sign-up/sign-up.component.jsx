@@ -7,7 +7,7 @@ import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 import './sign-up.style.scss'
-import { async } from "@firebase/util";
+// import { async } from "@firebase/util";
 
 
 class SginUp extends React.Component {
