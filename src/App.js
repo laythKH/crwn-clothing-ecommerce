@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, HashRouter } from 'react-router-dom';
 // import { } from 'react-router-dom';
 import HomePage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx';
@@ -9,8 +9,7 @@ import CheckoutPage from './pages/checkout/checkout.component';
 
 import Header from './components/header/header.component.jsx';
 
-import { auth } from './firebase/firebase.utils';
-import { db } from './firebase/firebase.utils';
+import { auth, db } from './firebase/firebase.utils';
 import { doc, onSnapshot } from 'firebase/firestore';
 
 import { connect } from 'react-redux';
@@ -55,13 +54,15 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/shop' element={<ShopPage />} />
-          <Route path='/shop/:collectionId' element={<CollectionPage />} />
-          <Route path='checkout' element={<CheckoutPage />} />
-          <Route path='signin' element={this.props.currentUser ? <Navigate to='/' replace /> : <SignInAndSignUpPage />} />
-        </Routes>
+        <HashRouter basename='/'>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/shop' element={<ShopPage />} />
+            <Route path='/shop/:collectionId' element={<CollectionPage />} />
+            <Route path='checkout' element={<CheckoutPage />} />
+            <Route path='signin' element={this.props.currentUser ? <Navigate to='/' replace /> : <SignInAndSignUpPage />} />
+          </Routes>
+        </HashRouter>
       </div>
     );
   }
