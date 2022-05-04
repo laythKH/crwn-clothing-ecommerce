@@ -5,7 +5,7 @@
 // import { async } from '@firebase/util';
 import { initializeApp } from 'firebase/app';
 
-import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 import { doc, getDoc, getFirestore, setDoc } from 'firebase/firestore';
 
