@@ -11,14 +11,15 @@ import { store, persistor } from './redux/store'
 
 import './index.css';
 import App from './App';
+import { HashRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <HashRouter basename='/' >
       <PersistGate persistor={persistor}>
         <App />
       </PersistGate>
-    </BrowserRouter>
+    </HashRouter>
   </Provider>
   ,
   document.getElementById('root')

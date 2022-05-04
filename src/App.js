@@ -15,6 +15,7 @@ import { doc, onSnapshot } from 'firebase/firestore';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.action'
 import CollectionPage from './pages/collection/collection.component';
+import SharedLayout from './pages/sharedLayout/sharedLayout.component';
 
 class App extends React.Component {
 
@@ -53,16 +54,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <HashRouter basename='/'>
-          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/shop' element={<ShopPage />} />
-            <Route path='/shop/:collectionId' element={<CollectionPage />} />
+        <Routes>
+          <Route path='/' element={<SharedLayout />} >
+            <Route index element={<HomePage />} />
+            <Route path='shop' element={<ShopPage />} />
+            <Route path='shop/:collectionId' element={<CollectionPage />} />
             <Route path='checkout' element={<CheckoutPage />} />
             <Route path='signin' element={this.props.currentUser ? <Navigate to='/' replace /> : <SignInAndSignUpPage />} />
-          </Routes>
-        </HashRouter>
+          </Route>
+        </Routes>
       </div>
     );
   }
@@ -78,3 +78,20 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+// render() {
+//   return (
+//     <div className="App">
+//       <Header />
+//       <HashRouter basename='/'>
+//         <Routes>
+//           <Route path='/' element={<HomePage />} />
+//           <Route path='/shop' element={<ShopPage />} />
+//           <Route path='/shop/:collectionId' element={<CollectionPage />} />
+//           <Route path='checkout' element={<CheckoutPage />} />
+//           <Route path='signin' element={this.props.currentUser ? <Navigate to='/' replace /> : <SignInAndSignUpPage />} />
+//         </Routes>
+//       </HashRouter>
+//     </div>
+//   );
+// }
